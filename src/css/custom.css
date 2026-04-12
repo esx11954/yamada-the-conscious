@@ -1,62 +1,268 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Anthropic-inspired Design System
+ * Warm coral × cream × charcoal
  */
 
-@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/earlyaccess/notosansjp.css');
+
+/* ============================================================
+   Light Mode
+   ============================================================ */
+
+:root {
+  /* Primary: Anthropic coral / terracotta */
+  --ifm-color-primary: #D97757;
+  --ifm-color-primary-dark: #C96843;
+  --ifm-color-primary-darker: #BF5E39;
+  --ifm-color-primary-darkest: #A04A28;
+  --ifm-color-primary-light: #E08968;
+  --ifm-color-primary-lighter: #E89A7C;
+  --ifm-color-primary-lightest: #F0B49F;
+
+  /* Background: warm cream */
+  --ifm-background-color: #FAF9F7;
+  --ifm-background-surface-color: #F2EDE7;
+
+  /* Typography */
+  --ifm-font-color-base: #1A1918;
+  --ifm-font-color-secondary: #6B5E52;
+  --ifm-heading-color: #1A1918;
+  --ifm-link-color: #C96843;
+  --ifm-link-hover-color: #A04A28;
+
+  /* Font families */
+  --ifm-font-family-base: 'Noto Sans JP', 'Inter', system-ui, -apple-system, sans-serif;
+  --ifm-heading-font-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Font sizes & leading */
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.75;
+  --ifm-code-font-size: 91%;
+
+  /* Code blocks */
+  --ifm-code-background: #EDE8E1;
+  --docusaurus-highlighted-code-line-bg: rgba(217, 119, 87, 0.12);
+
+  /* Borders */
+  --ifm-toc-border-color: #E3DDD6;
+  --ifm-color-emphasis-200: #EDE8E1;
+  --ifm-color-emphasis-300: #E3DDD6;
+  --ifm-color-emphasis-400: #C8BFB5;
+  --ifm-hr-border-color: #E3DDD6;
+
+  /* Navbar */
+  --ifm-navbar-background-color: #FAF9F7;
+  --ifm-navbar-shadow: 0 1px 0 0 #E3DDD6;
+  --ifm-navbar-link-color: #3D3129;
+  --ifm-navbar-link-hover-color: #D97757;
+
+  /* Sidebar */
+  --ifm-menu-color: #3D3129;
+  --ifm-menu-color-active: #D97757;
+  --ifm-menu-color-background-active: rgba(217, 119, 87, 0.08);
+  --ifm-menu-color-background-hover: rgba(217, 119, 87, 0.05);
+
+  /* Footer */
+  --ifm-footer-background-color: #1A1918;
+  --ifm-footer-color: #C8BFB5;
+  --ifm-footer-link-color: #E3DDD6;
+  --ifm-footer-link-hover-color: #D97757;
+
+  /* Radius & shadow */
+  --ifm-global-radius: 6px;
+  --ifm-button-border-radius: 6px;
+  --ifm-card-border-radius: 8px;
+  --ifm-global-shadow-lw: 0 1px 3px 0 rgba(26, 25, 24, 0.08), 0 1px 2px -1px rgba(26, 25, 24, 0.06);
+  --ifm-global-shadow-md: 0 4px 12px 0 rgba(26, 25, 24, 0.10), 0 2px 4px -1px rgba(26, 25, 24, 0.06);
+}
+
+/* ============================================================
+   Dark Mode
+   ============================================================ */
+
+[data-theme='dark'] {
+  /* Primary stays coral, slightly brighter for dark bg */
+  --ifm-color-primary: #E08968;
+  --ifm-color-primary-dark: #D97757;
+  --ifm-color-primary-darker: #C96843;
+  --ifm-color-primary-darkest: #A04A28;
+  --ifm-color-primary-light: #E89A7C;
+  --ifm-color-primary-lighter: #F0AE93;
+  --ifm-color-primary-lightest: #F5C5B0;
+
+  /* Background: warm charcoal (Anthropic dark) */
+  --ifm-background-color: #1A1918;
+  --ifm-background-surface-color: #242220;
+
+  /* Typography */
+  --ifm-font-color-base: #F0EBE5;
+  --ifm-font-color-secondary: #A89A8E;
+  --ifm-heading-color: #F5F0EB;
+  --ifm-link-color: #E08968;
+  --ifm-link-hover-color: #F0AE93;
+
+  /* Borders */
+  --ifm-toc-border-color: #3A3533;
+  --ifm-color-emphasis-200: #2E2B29;
+  --ifm-color-emphasis-300: #3A3533;
+  --ifm-color-emphasis-400: #524E4A;
+  --ifm-hr-border-color: #3A3533;
+
+  /* Code blocks */
+  --ifm-code-background: #242220;
+  --docusaurus-highlighted-code-line-bg: rgba(217, 119, 87, 0.15);
+
+  /* Navbar */
+  --ifm-navbar-background-color: #1A1918;
+  --ifm-navbar-shadow: 0 1px 0 0 #3A3533;
+  --ifm-navbar-link-color: #D6CEC7;
+  --ifm-navbar-link-hover-color: #E08968;
+
+  /* Sidebar */
+  --ifm-menu-color: #C8BFB5;
+  --ifm-menu-color-active: #E08968;
+  --ifm-menu-color-background-active: rgba(224, 137, 104, 0.12);
+  --ifm-menu-color-background-hover: rgba(224, 137, 104, 0.07);
+
+  /* Footer */
+  --ifm-footer-background-color: #111110;
+  --ifm-footer-color: #A89A8E;
+  --ifm-footer-link-color: #C8BFB5;
+  --ifm-footer-link-hover-color: #E08968;
+}
+
+/* ============================================================
+   Global
+   ============================================================ */
 
 body {
-	font-family: 'Noto Sans JP', sans-serif;
+  font-family: var(--ifm-font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* You can override the default Infima variables here. */
-:root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-/*
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-}
-*/
+/* ============================================================
+   Navbar
+   ============================================================ */
 
-[data-theme='dark'] {
-  --ifm-color-primary: #a19ffe;
-  --ifm-color-primary-dark: #7976fe;
-  --ifm-color-primary-darker: #6562fd;
-  --ifm-color-primary-darkest: #2924fd;
-  --ifm-color-primary-light: #c9c8fe;
-  --ifm-color-primary-lighter: #dddcff;
-  --ifm-color-primary-lightest: #ffffff;
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
 }
 
-.img_node_modules-\@docusaurus-theme-classic-lib-theme-MDXComponents-Img-styles-module{
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
-.img_ev3q{
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* ============================================================
+   Sidebar
+   ============================================================ */
+
+.menu__link--active {
+  font-weight: 600;
+}
+
+.menu__list-item-collapsible:hover {
+  background: var(--ifm-menu-color-background-hover);
+}
+
+/* ============================================================
+   Content area
+   ============================================================ */
+
+.markdown h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown h2 {
+  font-size: 1.4rem;
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
+}
+
+.markdown > p {
+  line-height: var(--ifm-line-height-base);
+}
+
+/* ============================================================
+   Code blocks
+   ============================================================ */
+
+code {
+  background: var(--ifm-code-background);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  font-size: var(--ifm-code-font-size);
+  padding: 0.1em 0.35em;
+}
+
+.prism-code {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* ============================================================
+   Admonitions (:::note, :::tip etc.)
+   ============================================================ */
+
+.alert {
+  border-radius: var(--ifm-card-border-radius);
+  border-width: 1px;
+}
+
+/* ============================================================
+   Tables
+   ============================================================ */
+
+table {
+  border-radius: var(--ifm-card-border-radius);
+  overflow: hidden;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  display: table;
+  width: 100%;
+}
+
+th {
+  background: var(--ifm-background-surface-color);
+  font-family: var(--ifm-heading-font-family);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background: var(--ifm-background-surface-color);
+}
+
+/* ============================================================
+   Images & media
+   ============================================================ */
+
+.img_node_modules-\@docusaurus-theme-classic-lib-theme-MDXComponents-Img-styles-module,
+.img_ev3q {
+  box-shadow: var(--ifm-global-shadow-md);
+  border-radius: var(--ifm-card-border-radius);
 }
 
 iframe {
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  box-shadow: var(--ifm-global-shadow-md);
+  border-radius: var(--ifm-card-border-radius);
 }
 
 iframe.youtube-16-9 {
@@ -66,8 +272,54 @@ iframe.youtube-16-9 {
   max-width: 600px;
   display: block;
   margin: auto;
-  }
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer {
+  border-top: 1px solid #2E2B29;
+}
+
+.footer__title {
+  font-family: var(--ifm-heading-font-family);
+  color: #F0EBE5;
+}
+
+/* ============================================================
+   Pagination
+   ============================================================ */
+
+.pagination-nav__link {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+/* ============================================================
+   TOC (Table of Contents)
+   ============================================================ */
+
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* ============================================================
+   Misc
+   ============================================================ */
 
 .hidden {
   display: none !important;
+}
+
+::selection {
+  background: rgba(217, 119, 87, 0.2);
+  color: inherit;
 }
